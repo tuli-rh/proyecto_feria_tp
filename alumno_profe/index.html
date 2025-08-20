@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alerta Silenciosa</title>
+    <link rel="stylesheet" href="alumno_profe/style.css">
+</head>
+<body>
+
+    <!-- Pantalla de selección de rol -->
+    <div id="loginScreen">
+        <h1>Alerta Silenciosa</h1>
+        <p>Selecciona tu rol:</p>
+        <button onclick="entrarComo('alumno')">Entrar como Alumno</button>
+        <button onclick="entrarComo('profesor')">Entrar como Profesor</button>
+    </div>
+
+    <!-- Interfaz Alumno -->
+    <div id="alumnoUI" style="display:none;">
+        <header>
+            <nav>
+                <a href="#">Inicio</a>
+                <a href="#">Ayuda</a>
+                <a href="#">Denunciar</a>
+            </nav>
+            <h1>Alerta Silenciosa - Alumno</h1>
+        </header>
+        <main>
+            <aside>
+                <div class="perfil">
+                    <img src="https://via.placeholder.com/50" alt="Usuario">
+                    <p>Anon</p>
+                </div>
+                <div class="reportes">
+                    <h3>Mis reportes</h3>
+                    <ul id="listaReportes"></ul>
+                </div>
+                <div class="chat" id="chatAlumno" style="display: none;">
+                    <h3>Chat con Profesor</h3>
+                    <div id="mensajesAlumno"></div>
+                    <input type="text" id="mensajeAlumno" placeholder="Escribe un mensaje...">
+                    <button onclick="enviarMensaje('alumno')">➤</button>
+                </div>
+            </aside>
+            <section class="formulario">
+                <h2>Nota de denuncia</h2>
+                <form id="denunciaForm">
+                    <label>Curso:
+                        <input type="text" name="curso" required>
+                    </label>
+                    <label>Fecha:
+                        <input type="date" name="fecha" required>
+                    </label>
+                    <label>Escribe tu denuncia:
+                        <textarea name="detalle" rows="6" required></textarea>
+                    </label>
+                    <button type="submit">Enviar</button>
+                </form>
+            </section>
+        </main>
+    </div>
+
+    <!-- Interfaz Profesor -->
+    <div id="profesorUI" style="display:none;">
+        <header>
+            <nav>
+                <a href="#">Inicio</a>
+                <a href="#">Ayuda</a>
+                <a href="#">Denuncias</a>
+            </nav>
+            <h1>Alerta Silenciosa - Profesor</h1>
+        </header>
+        <main>
+            <aside>
+                <h3>Denuncias Recibidas</h3>
+                <ul id="listaDenuncias"></ul>
+            </aside>
+            <section class="chat">
+                <h3>Chat con Alumno</h3>
+                <div id="mensajesProfesor"></div>
+                <input type="text" id="mensajeProfesor" placeholder="Escribe un mensaje...">
+                <button onclick="enviarMensaje('profesor')">➤</button>
+            </section>
+        </main>
+    </div>
+
+    <script src="alumno_profe/script.js"></script>
+</body>
+</html>
